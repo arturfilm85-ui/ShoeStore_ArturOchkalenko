@@ -1,0 +1,27 @@
+﻿<Window x:Class="ShoeStore_AO.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ООО Обувь - Авторизация" Height="450" Width="700"
+        FontFamily="Times New Roman" Background="White" WindowStartupLocation="CenterScreen"
+        Icon="Resources/icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#7FFF00" CornerRadius="10" Margin="10" Padding="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="Resources/logo.png" Height="80" Margin="0,0,20,0" Stretch="Uniform"/>
+                <TextBlock Text="Авторизация" FontSize="32" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <TextBlock Text="Логин" Margin="0,5"/>
+            <TextBox Name="TbLogin" Height="25"/>
+            <TextBlock Text="Пароль" Margin="0,10,0,5"/>
+            <PasswordBox Name="PbPassword" Height="25"/>
+            <Button Name="BtnLogin" Content="Войти" Height="30" Margin="0,20,0,0" Background="#00FA9A" Click="BtnLogin_Click"/>
+            <Button Name="BtnGuest" Content="Войти как гость" Height="30" Margin="0,10,0,0" Click="BtnGuest_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

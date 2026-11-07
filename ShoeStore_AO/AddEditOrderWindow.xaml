@@ -1,0 +1,48 @@
+﻿<Window x:Class="ShoeStore_AO.AddEditOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление/редактирование заказа" Height="600" Width="500"
+        FontFamily="Times New Roman" Background="White" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Border Grid.Row="0" Background="#7FFF00" Margin="10" Padding="10" CornerRadius="10">
+            <TextBlock Text="Управление заказом" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </Border>
+
+        <!-- Поля -->
+        <ScrollViewer Grid.Row="1" Margin="20,10">
+            <StackPanel>
+                <TextBlock Text="Артикул (ID):" Margin="0,5"/>
+                <TextBox Text="{Binding OrderID}" IsReadOnly="True" Background="#E0E0E0" Height="24"/>
+
+               
+                <TextBlock Text="Клиент (Пользователь):" Margin="0,10,0,5"/>
+                <ComboBox Name="CmbUser" DisplayMemberPath="FullName" SelectedValuePath="UserID" SelectedValue="{Binding UserID}" Height="24"/>
+
+                <TextBlock Text="Статус заказа:" Margin="0,10,0,5"/>
+                <ComboBox Name="CmbStatus" DisplayMemberPath="StatusName" SelectedValuePath="StatusID" SelectedValue="{Binding StatusID}" Height="24"/>
+
+                <TextBlock Text="Пункт выдачи:" Margin="0,10,0,5"/>
+                <ComboBox Name="CmbPickup" DisplayMemberPath="Address" SelectedValuePath="PickupPointID" SelectedValue="{Binding PickupPointID}" Height="24"/>
+
+                <TextBlock Text="Код получения:" Margin="0,10,0,5"/>
+                <TextBox Text="{Binding PickupCode, UpdateSourceTrigger=PropertyChanged}" Height="24"/>
+
+                <TextBlock Text="Дата заказа:" Margin="0,10,0,5"/>
+                <DatePicker SelectedDate="{Binding OrderDate}" Height="24"/>
+
+                <TextBlock Text="Дата выдачи:" Margin="0,10,0,5"/>
+                <DatePicker SelectedDate="{Binding DeliveryDate}" Height="24"/>
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Кнопка -->
+        <Button Grid.Row="2" Content="Сохранить данные" HorizontalAlignment="Center" Padding="20,8" Background="#00FA9A" FontSize="16" Click="BtnSave_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,64 @@
+﻿<Window x:Class="ShoeStore_AO.AddEditTovarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление/редактирование товара" Height="650" Width="800"
+        FontFamily="Times New Roman" Background="White" WindowStartupLocation="CenterScreen"
+        Icon="Resources/icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#7FFF00" Margin="10" Padding="10" CornerRadius="10">
+            <TextBlock Text="Управление товаром" FontSize="22" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </Border>
+        <ScrollViewer Grid.Row="1" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Фото товара:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="0,5">
+                    <Image Name="ImgPhoto" Width="120" Height="80" Stretch="Uniform" Margin="0,0,10,0" Source="Resources/picture.png"/>
+                    <Button Name="BtnSelectImage" Content="Выбрать изображение" Padding="10,5" Background="#00FA9A" Click="BtnSelectImage_Click"/>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="ID товара:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ProductID}" IsReadOnly="True" Height="24" Margin="0,5" Background="#E0E0E0"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Наименование:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding ProductName, UpdateSourceTrigger=PropertyChanged}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Категория:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <ComboBox Grid.Row="3" Grid.Column="1" Name="CmbCategory" DisplayMemberPath="CategoryName" SelectedValuePath="CategoryID" SelectedValue="{Binding CategoryID}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Описание:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Height="60" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Margin="0,5"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Производитель:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <ComboBox Grid.Row="5" Grid.Column="1" Name="CmbManufacturer" DisplayMemberPath="ManufacturerName" SelectedValuePath="ManufacturerID" SelectedValue="{Binding ManufacturerID}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Поставщик:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <ComboBox Grid.Row="6" Grid.Column="1" Name="CmbSupplier" DisplayMemberPath="SupplierName" SelectedValuePath="SupplierID" SelectedValue="{Binding SupplierID}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Цена:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Price, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="8" Grid.Column="0" Text="Ед. изм.:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="9" Grid.Column="0" Text="Кол-во на складе:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding StockQuantity, UpdateSourceTrigger=PropertyChanged}" Height="24" Margin="0,5"/>
+                <TextBlock Grid.Row="10" Grid.Column="0" Text="Скидка:" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,5,10,5"/>
+                <TextBox Grid.Row="10" Grid.Column="1" Text="{Binding Discount, StringFormat={}{0:F2}, UpdateSourceTrigger=PropertyChanged}" Height="24" Margin="0,5"/>
+            </Grid>
+        </ScrollViewer>
+        <Button Grid.Row="2" Name="BtnSave" Content="Сохранить данные" HorizontalAlignment="Center" Padding="20,8" Margin="0,10,0,15" Background="#00FA9A" FontSize="16" Click="BtnSave_Click"/>
+    </Grid>
+</Window>
